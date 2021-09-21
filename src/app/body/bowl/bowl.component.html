@@ -1,0 +1,11 @@
+<div (click)="onMessage()" class="com" fxFlexFill >
+  {{index}}
+  <div class="main1" *ngIf="clicked">
+    <h1>Hello {{name}}</h1>
+    <button mat-button >Action</button>
+  </div>
+  <div class="main1" *ngIf="!clicked" style="background-color: red;">
+    <h1>Bye {{name}}</h1>
+    <mat-icon>home</mat-icon>
+  </div>
+</div>
