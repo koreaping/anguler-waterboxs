@@ -1,3 +1,4 @@
+import { i18nMetaToJSDoc } from '@angular/compiler/src/render3/view/i18n/meta';
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { BowlApiService } from '../bowl-api.service';
 
@@ -14,10 +15,12 @@ export class BowlComponent implements OnInit {
 
   public name?:string;
 
+  public data?: number;
+
   public clicked:boolean = false;
 
-  constructor(service: BowlApiService) {
-
+  constructor(private bowlService : BowlApiService) {
+    
    }
 
   ngOnInit(): void {
@@ -25,6 +28,7 @@ export class BowlComponent implements OnInit {
       this.name = "john";
     } else {
       this.name = "john2";
+      this.data = this.bowlService.getData()
     }
   }
 

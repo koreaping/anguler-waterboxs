@@ -4,6 +4,12 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class BowlApiService {
-
-  constructor() { }
+  
+  getData(){
+    return data;
+  }
+  constructor() { 
+    
+  }
 }
+let data = 30

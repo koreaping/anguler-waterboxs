@@ -14,6 +14,7 @@ import { TopBarComponent } from './top-bar/top-bar.component';
 import { BowlComponent } from './body/bowl/bowl.component';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
+import { BowlApiService } from './body/bowl-api.service';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,7 @@ import {MatButtonModule} from '@angular/material/button';
     MatButtonModule
 
   ],
-  providers: [],
+  providers: [BowlApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
