@@ -13,9 +13,15 @@ export class BowlComponent implements OnInit {
   @Input()
   public index!:number;
 
-  public name?:string;
+  public status?:string;
 
-  public data?: number;
+  public temp?: number;
+
+  public PH?: number;
+
+  public DO?: number;
+
+  public KG?: number;
 
   public clicked:boolean = false;
 
@@ -24,33 +30,28 @@ export class BowlComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    this.temp = this.bowlService.getTemp();
+    this.PH  = this.bowlService.getPh();
+    this.DO = this.bowlService.getDo();
+    this.KG = this.bowlService.getKg();
     if(this.index == 1) {
-      this.name = "john";
-    } else {
-      this.name = "john2";
-      this.data = this.bowlService.getData()
+      this.status = "good";
+    } else if(this.index == 11){
+      this.status = "danger";
+    }else if(this.index == 14 || this.index == 10){
+      this.status = "warn"
+    }
+    else{
+      this.status = "good"
     }
   }
 
   public onMessage() : void {
-    if(this.index == 1) {
-      if(!this.clicked) {
-        this.clicked = true;
-      this.name = "sara";
+    if(!this.clicked) {
+      this.clicked = true;
       } else {
 
-        this.clicked = false;
-        this.name = "john"
+      this.clicked = false;
       }
-    } else {
-      if(!this.clicked) {
-        this.clicked = true;
-        this.name = "sara2";
-        } else {
-
-        this.clicked = false;
-          this.name = "john2"
-        }
-      }
-  }
+    }
 }

@@ -9,8 +9,8 @@ import { BowlApiService } from './body/bowl-api.service';
 export class AppComponent {
   title = 'my-app';
 
-  public data?: number;
+  public large?: number;
   constructor(private bowlSevice: BowlApiService){
-    this.data = bowlSevice.getData();
+    this.large = bowlSevice.getTemp();
   }
 }
